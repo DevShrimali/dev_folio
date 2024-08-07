@@ -20,7 +20,8 @@
 
   <!-- Torus Kit `.js` file -->
   <script src="./assets/js/toruskit.min.js"></script>
-  <link href="images/favicon/favicon.png" rel="icon">
+  <link href="assets/img/favicon.png" rel="icon">
+
   <title>Dev Shrimali - UI Designer</title>
 
 </head>
@@ -44,40 +45,38 @@
         </button>
 
         <!-- Offscreen navigation toggler -->
-        <a href="index.html">
-          <button class="btn shadow-no position-relative center-both text-dark" id="off-toggler" type="button"
-            aria-expanded="false" aria-label="Toggle navigation" data-tor="click:class.toggle(active, {target: body})">
-            <!-- <i class="bi bi-list h4 mb-0 z-index-1 center-both"></i> -->
-            <i class="bi bi-arrow-left-short position-absolute d-flex"
-              data-tor="hover(#off-toggler):reveal(left) delay(100ms) quad"></i>
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"
-              data-tor-group="path => hover(#off-toggler):scaleX.to(0) originX(0%) quad delay(/+100ms/);">
-              <path fill="currentColor" d="M2.5 4c0-.3.2-.5.5-.5h10c.3 0 .5.2.5.5s-.2.5-.5.5H3c-.3 0-.5-.2-.5-.5z" />
-              <path fill="currentColor" d="M2.5 8c0-.3.2-.5.5-.5h10c.3 0 .5.2.5.5s-.2.5-.5.5H3c-.3 0-.5-.2-.5-.5z" />
-              <path fill="currentColor" d="M2.5 12c0-.3.2-.5.5-.5h10c.3 0 .5.2.5.5s-.2.5-.5.5H3c-.3 0-.5-.2-.5-.5z" />
-            </svg>
-            <span class="circle circle-md position-absolute bg-opacity-10"
-              data-tor="hover(#off-toggler):[bg(dark) scale.from(0)]"></span>
-          </button>
-        </a>
+        <button class="btn shadow-no position-relative center-both text-dark" id="off-toggler" type="button"
+          aria-expanded="false" aria-label="Toggle navigation" data-tor="click:class.toggle(active, {target: body})">
+          <!-- <i class="bi bi-list h4 mb-0 z-index-1 center-both"></i> -->
+          <i class="bi bi-arrow-left-short position-absolute d-flex"
+            data-tor="hover(#off-toggler):reveal(left) delay(100ms) quad"></i>
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"
+            data-tor-group="path => hover(#off-toggler):scaleX.to(0) originX(0%) quad delay(/+100ms/);">
+            <path fill="currentColor" d="M2.5 4c0-.3.2-.5.5-.5h10c.3 0 .5.2.5.5s-.2.5-.5.5H3c-.3 0-.5-.2-.5-.5z" />
+            <path fill="currentColor" d="M2.5 8c0-.3.2-.5.5-.5h10c.3 0 .5.2.5.5s-.2.5-.5.5H3c-.3 0-.5-.2-.5-.5z" />
+            <path fill="currentColor" d="M2.5 12c0-.3.2-.5.5-.5h10c.3 0 .5.2.5.5s-.2.5-.5.5H3c-.3 0-.5-.2-.5-.5z" />
+          </svg>
+          <span class="circle circle-md position-absolute bg-opacity-10"
+            data-tor="hover(#off-toggler):[bg(dark) scale.from(0)]"></span>
+        </button>
       </div>
 
       <!-- Navigation -->
       <div class="collapse navbar-collapse small order-lg-0" id="topNavbar">
         <ul class="navbar-nav d-flex w-100 justify-content-evenly px-2 px-lg-7 links-dark">
           <li class="nav-item">
-            <a class="nav-link" href="#">Call me (+91) 87580-84842</a>
+            <a class="nav-link" href="tel:+918758084842">Call me (+91) 87580-84842</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">devloper.ds@gmail.com</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Resume
+            <a class="nav-link" href="assets/doc/Dev_Shrimali_JULY-2024.pdf" target="_blank">Resume
               <i class="bi bi-file-earmark-arrow-down-fill text-primary"></i>
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Let's chat
+            <a class="nav-link" href="https://web.whatsapp.com/send?phone=918758084842">Let's chat
               <i class="bi bi-chat-dots-fill text-primary"></i>
             </a>
           </li>
@@ -85,6 +84,39 @@
       </div>
 
     </div>
+  </nav>
+  <!-- Offscreen backdrop -->
+  <div id="offscreen-backdrop" class="z-index-master w-h-100 fixed-top bg-black bg-opacity-50"
+    data-tor="active(body):[fade.in @pointer-events(none;auto)] click:class.remove(active, {target: body})"></div>
+
+  <!-- Offscreen navigation -->
+  <nav id="offscreen-nav"
+    class="overflow-auto position-fixed z-index-master end-0 bg-white shadow w-80 w-sm-auto p-5 pe-8 h-100"
+    data-tor="active(body):pull.left(full)">
+    <button type="button" class="btn-close position-absolute top-0 end-0 m-3"
+      data-tor="click:class.remove(active, {target: body})" aria-label="Close"></button>
+    <ul class="nav flex-column links-dark nav-style-opacity nav-style-hover-primary" data-tor-group="
+      .nav-item => active(body):[fade.in pull.left(sm)] delay(/25ms+25ms/) slow;
+      .nav-link => hover:push.right(xs) quad;
+    " data-tor="click:class.remove(active, {target: body})">
+
+      <li class="nav-item">
+        <a class="nav-link transition-unset" href="#home">Home</a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link transition-unset" href="#Skills">Skills</a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link transition-unset" href="#experience">Experience</a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link transition-unset" href="#stay-connected">Stay connected</a>
+      </li>
+
+    </ul>
   </nav>
 
 
@@ -94,65 +126,10 @@
   <section id="work-process" class="py-5 py-md-8 border-bottom">
 
     <div class="container py-4">
-      <div class="row "
-        data-tor-group=".circle => inview:[scale.from(0) rotate.from(20deg)] delay(/+50ms/) slow; h3 => inview:[pull.left(sm) fade.in] slow delay(/+50ms/);">
-        
-        <div class="col mb-5" data-tor-parent="hover">
-          <a href="work.html" class="center-v">
-            <!-- Icon -->
-            <div class="circle p-4 bg-secondary me-3" data-tor="!hover(p):bg(primary)">
-              <i class="bi bi-globe text-white h3 mb-0"></i>
-            </div>
-            <!-- Heading -->
-            <h3 class="font-sans-serif h5 mb-0">Web Projects</h3>
 
-            <i class="bi bi-arrow-right ms-2 text-body" data-tor="hover(p):[fade.in pull.right(sm)]"></i>
-          </a>
-        </div>
-
-        <div class="col mb-5" data-tor-parent="hover">
-          <a href="work.html" class="center-v">
-            <!-- Icon -->
-            <div class="circle p-4 bg-secondary me-3" data-tor="!hover(p):bg(primary)">
-              <i class="bi bi-phone text-white h3 mb-0"></i>
-            </div>
-            <!-- Heading -->
-            <h3 class="font-sans-serif h5 mb-0">App Design</h3>
-
-            <i class="bi bi-arrow-right ms-2 text-body" data-tor="hover(p):[fade.in pull.right(sm)]"></i>
-          </a>
-        </div>
-
-        <div class="col mb-5" data-tor-parent="hover">
-          <a href="work.html" class="center-v">
-            <!-- Icon -->
-            <div class="circle p-4 bg-secondary me-3" data-tor="!hover(p):bg(primary)">
-              <i class="bi bi-brush text-white h3 mb-0"></i>
-            </div>
-            <!-- Heading -->
-            <h3 class="font-sans-serif h5 mb-0">Illustration</h3>
-
-            <i class="bi bi-arrow-right ms-2 text-body" data-tor="hover(p):[fade.in pull.right(sm)]"></i>
-          </a>
-        </div>
-
-        <div class="col mb-5" data-tor-parent="hover">
-          <a href="work.html" class="center-v">
-            <!-- Icon -->
-            <div class="circle p-4 bg-secondary me-3" data-tor="!hover(p):bg(primary)">
-              <i class="bi bi-bootstrap text-white h3 mb-0"></i>
-            </div>
-            <!-- Heading -->
-            <h3 class="font-sans-serif h5 mb-0">Logo Design</h3>
-
-            <i class="bi bi-arrow-right ms-2 text-body" data-tor="hover(p):[fade.in pull.right(sm)]"></i>
-          </a>
-        </div>
-
-      </div>
       <div class="w-md-50">
         <!-- Badge -->
-        <div class="title-badge d-inline-block mb-6 bg-primary text-primary bg-opacity-10 px-3 small">Web Projects</div>
+
 
         <h2 class="mb-4 overflow-hidden mb-5"
           data-tor-group=".fx => scroll:[@width(0;auto) @visibility(hidden;visible), {start: /10+4/, end: /10+4/}];">
@@ -167,14 +144,13 @@
         </h2>
         <!-- <p class="mb-6">Nullam quis nisl mauris. Praesent id urna ut dolor tincidunt semper. Nam orci leo, dapibus nec molestie a, viverra ut velit.</p> -->
       </div>
-
+      <div class="title-badge d-inline-block mb-6 bg-primary text-primary bg-opacity-10 px-3 small">Web Projects</div>
       <div class="row row-cols-1 row-cols-md-3"
         data-tor-group=".fx => inview:[pull.up(md) fade.in] delay(/+100ms/) slow;">
-
+        <!-- Projec Cards -->
+        <!-- 1 -->
         <div class="col work-card">
-
-          <div class="fx bg-secondary bg-darken rounded-xl p-6">
-
+          <div class="fx bg-dark bg-darken rounded-xl p-6">
             <h3 class="font-sans-serif text-white mb-4">Konzept Solutions</h3>
             <p class="mb-4 text-body-light">A project to Revamp and Fastest Performance and Load Site with Latest UI
               Trendy website.</p>
@@ -182,11 +158,10 @@
           </div>
 
         </div>
-        <!-- 1 -->
-
+        <!-- 2 -->
         <div class="col work-card">
 
-          <div class="fx bg-primary rounded-xl p-6">
+          <div class="fx bg-dark rounded-xl p-6">
 
             <h3 class="font-sans-serif text-white mb-4">Vishwashetra Interior Desiners</h3>
             <p class="mb-4 text-body-light">In this project, my role is brand designing and website design.</p>
@@ -195,42 +170,50 @@
           </div>
 
         </div>
-        <!-- 2 -->
-        <div class="col work-card">
-
-          <div class="fx bg-secondary rounded-xl p-6">
-
-            <h3 class="font-sans-serif text-white mb-4">Delsure Logistics</h3>
-            <p class="mb-4 text-body-light">The project is to re-evaluate former corporate website need fresh and trendy
-              website.</p>
-            <a href="http://www.delsurelogistics.com/" target="_blank" class="btn btn-soft-light btn-arrow">Website</a>
-          </div>
-
-        </div>
         <!-- 3 -->
         <div class="col work-card">
 
-          <div class="fx bg-primary bg-darken rounded-xl p-6">
+          <div class="fx bg-dark rounded-xl p-6">
 
-            <h3 class="font-sans-serif text-white mb-4">The Online chemist</h3>
-            <p class="mb-4 text-body-light">This project is to Design App and Website for App Promotion</p>
-            <a href="https://www.theonlinechemist.co.in/" target="_blank"
+            <h3 class="font-sans-serif text-white mb-4">The Bizz Buddy</h3>
+            <p class="mb-4 text-body-light">The project is to re-evaluate former corporate website need fresh and trendy
+              website.</p>
+            <a href="https://thebizzbuddy.netlify.app/" target="_blank" class="btn btn-soft-light btn-arrow">Website</a>
+          </div>
+
+        </div>
+        <!-- 4 -->
+        <div class="col work-card">
+
+          <div class="fx bg-dark bg-darken rounded-xl p-6">
+
+            <h3 class="font-sans-serif text-white mb-4">The Metrolink</h3>
+            <p class="mb-4 text-body-light">The Project about The FASTag And other Banking services</p>
+            <a href="https://metrolink-temp.netlify.app/" target="_blank"
               class="btn btn-soft-light btn-arrow">Website</a>
           </div>
 
         </div>
+        <!-- 5 -->
+        <div class="col work-card">
+          <div class="fx bg-dark bg-darken rounded-xl p-6">
+            <h3 class="font-sans-serif text-white mb-4">The ChapterOne Books</h3>
+            <p class="mb-4 text-body-light">The Project about Largerst books collection e-commerce Website</p>
+            <a href="https://chapterone-onlinebook.netlify.app/" target="_blank"
+              class="btn btn-soft-light btn-arrow">Website</a>
+          </div>
+        </div>
+        <!-- 6 -->
+        <div class="col work-card">
+          <div class="fx bg-dark bg-darken rounded-xl p-6">
+            <h3 class="font-sans-serif text-white mb-4">Yowza</h3>
+            <p class="mb-4 text-body-light">The Yowza is a Finacial services provider and this is marketing Webpage</p>
+            <a href="https://yowza-demo.netlify.app/" target="_blank"
+              class="btn btn-soft-light btn-arrow">Website</a>
+          </div>
+        </div>
+        <!-- # -->
 
-
-        <!-- <div class="col work-card">
-  
-                <div class="fx bg-warning bg-darken rounded-xl p-6">
-                  
-                  <h3 class="font-sans-serif text-white mb-4">Applyig changes</h3>
-                  <p class="mb-4 text-body-light">Vestibulum tellus ligula, pharetra nec enim vel, posuere ullamcorper nunc. Duis nec pellentesque lectus</p>
-                  <a href="https://www.theonlinechemist.co.in/" class="btn btn-soft-light btn-arrow">Website</a>
-                </div>
-    
-              </div> -->
 
       </div>
     </div>
